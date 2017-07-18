@@ -2,7 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { getFunName } from '../helpers';
 
-class storePicker extends React.Component {
+class StorePicker extends React.Component {
 	//Bind methods in constructor/ in inline check bekow form
 	//constructor(){
 	//  super();	
@@ -15,10 +15,13 @@ class storePicker extends React.Component {
 	//OR
    // (e) => this.goToStore.bind(e)	
 
+
 	goToStore(event){
 		event.preventDefault();
+		const storeId = this.storeInput.value;
 		console.log(this.storeInput.value);
-
+    this.context.router.transitionTo(`/store/${storeId}`);
+ 
 	}
 
 	// render method always bound to the class name, however other functions not bound to the class. `this` inside the render always point to the class
@@ -34,5 +37,8 @@ class storePicker extends React.Component {
 		);
 	}
 }
+StorePicker.contextTypes = {
+  router: React.PropTypes.object
+}
 
-export default storePicker;
+export default StorePicker;

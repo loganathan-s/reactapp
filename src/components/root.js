@@ -2,9 +2,9 @@ import React from 'react';
 import { render } from 'react-dom';
 import { BrowserRouter, Match, Miss } from 'react-router';
 import App from './App';
-import StorePicker from './storePicker';	
+import StorePicker from './StorePicker';	
 import NotFound from './NotFound';	
-//Stateless Function
+//Stateless Function 
 const Root = () => {
   return (
   	 <BrowserRouter>

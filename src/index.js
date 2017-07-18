@@ -1,6 +1,8 @@
+
 import React from 'react';
 import { render } from 'react-dom';
-import Root from './components/root';
+import { BrowserRouter, Match, Miss } from 'react-router';
 import './css/style.css';
+import Root from './components/root';
 
-render(<Root/>, document.querySelector("#main"));
+render(<Root/>, document.querySelector('#main'));
