@@ -5,7 +5,9 @@ class Fish extends React.Component{
 	
 
 	render(){
-		const { details } = this.props; // Es6 Destructuring
+		const { details, index } = this.props; // Es6 Destructuring
+		const isAvailable = details.status === 'available';
+		const buttonText = isAvailable ? "Add to Orfer" : "Sold Out"
 		return(
 			
 			 <li className="menu-fish">
@@ -15,12 +17,17 @@ class Fish extends React.Component{
 			  	<span className="price">{formatPrice(details.price)}</span>
 			  </h3>
 			  <p> {details.desc}</p>
-			  <button>Add to Order</button>
+			  <button onClick={() => this.props.addToOrder(index)} disabled={!isAvailable}>{buttonText}</button>
 			 </li>
 			)
 	}
 
 }
 
+Fish.PropTypes = {
+  details: React.PropTypes.object.isRequired,
+  index: React.PropTypes.string.isRequired,
+  addToOrder: React.PropTypes.func.isRequired
+};
 
 export default Fish;

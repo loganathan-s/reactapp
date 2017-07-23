@@ -20,8 +20,7 @@ class StorePicker extends React.Component {
 		event.preventDefault();
 		const storeId = this.storeInput.value;
 		console.log(this.storeInput.value);
-    this.context.router.transitionTo(`/store/${storeId}`);
- 
+        this.context.router.transitionTo(`/store/${storeId}`);
 	}
 
 	// render method always bound to the class name, however other functions not bound to the class. `this` inside the render always point to the class
@@ -37,6 +36,9 @@ class StorePicker extends React.Component {
 		);
 	}
 }
+
+// Imperative api, we used for transitionTo
+// declare something at top level, and made available to all. router is defined at top level, which we need to use is here //this.context.router.transitionTo(`/store/${storeId}`);
 StorePicker.contextTypes = {
   router: React.PropTypes.object
 }
